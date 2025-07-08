@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Important Question</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fdf6e3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .popup {
+      background-color: #fff;
+      border: 4px solid #333;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #d6336c;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .yes-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .no-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    p {
+      margin: 0;
+      font-style: italic;
+      color: #555;
+    }
+
+    .res-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="popup" id="popup">
+    <h2>Will you be my coding buddy? 👩‍💻👨‍💻</h2>
+    <button class="yes-btn" onclick="answerYes()">Ha</button>
+    <button class="no-btn" onclick="answerNo()">Na</button>
+    <p id="alerts"></p>
+  </div>
+<script>
+    let noClicks = 0;
+
+function answerYes() {
+  document.getElementById("popup").innerHTML = `
+    <h2>Yaay! Let's code and crash servers together! 😎💻</h2>
+    <button class="res-btn" onclick="ref()">Reset</button>
+  `;
+}
+
+function answerNo() {
+  noClicks += 1;
+
+  if (noClicks == 1) {
+    document.getElementById(
+      "alerts"
+    ).innerText = `Wait... dobara soch lo. You sure?`;
+  } else if (noClicks == 2) {
+    document.getElementById(
+      "alerts"
+    ).innerText = `Ek baar or soch lo. You sure?`;
+  } else if (noClicks == 3) {
+    document.getElementById(
+      "alerts"
+    ).innerText = `Last baar puchra hu. You sure?`;
+  } else {
+    document.getElementById("popup").innerHTML = `
+      <h2>Pagal mental prani, chlo bhago yha se 😡😡</h2>
+      <button class="res-btn" onclick="ref()">Reset</button>
+    `;
+  }
+}
+  
+function ref() {
+  a = "reload";
+  b = "location";
+  window[b][a]();
+}
+
+</script>
+</body>
+
+</html>
